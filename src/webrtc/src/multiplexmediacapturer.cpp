@@ -19,8 +19,8 @@
 #include "scy/filesystem.h"
 #include "scy/logger.h"
 #include "scy/webrtc/webrtc.h"
-#include "webrtc/media/engine/webrtcvideocapturerfactory.h"
-#include "webrtc/modules/video_capture/video_capture_factory.h"
+#include "media/engine/webrtcvideocapturerfactory.h"
+#include "modules/video_capture/video_capture_factory.h"
 
 
 namespace scy {
@@ -47,7 +47,7 @@ void MultiplexMediaCapturer::openFile(const std::string& file, bool loop)
 {
     // Open the capture file
     _videoCapture->setLoopInput(loop);
-    _videoCapture->setRealtimePlayback(true);
+    _videoCapture->setLimitFramerate(true);
     _videoCapture->openFile(file);
 
     // Set the output settings
